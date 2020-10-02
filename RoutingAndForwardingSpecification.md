@@ -393,8 +393,8 @@ both cases.
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 | Major Version                 | Minor Version                 |
-+-----------+-------------------+-------------------------------+
-|Frame Type | Flags             |
++-----------+-+-+-+-+-+---------+-------------------------------+
+|Frame Type |0|E|U|M|S| Flags   |
 +-----------+---------------------------------------------------+
 |                                                               |
 |                                                               |
@@ -418,11 +418,11 @@ both cases.
     number of the protocol.
 - **Frame Type** : (6 bits) 0x
 - **Flags** : (10 bits)
-    o **(E) indicates if the payload is encrypted**
-    o **(U) indicates unicast routing**
-    o **(M) indicates multicast routing**
-    o **(S) indicates shared routing**
-       The flags U, M, S are exclusive. A request that has more than one of these flags
+    - **(E) indicates if the payload is encrypted**
+    - **(U) indicates unicast routing**
+    - **(M) indicates multicast routing**
+    - **(S) indicates shared routing**
+    - The flags U, M, S are exclusive. A request that has more than one of these flags
        set is considered invalid, and the request MUST be rejected.
 - **Original Route Id** : The Route Id of where the ADDRESS came from
 - **Metadata Key Length** : (7 bits = max 128) If the first bit is set to 0, assume this is a length
