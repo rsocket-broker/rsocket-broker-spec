@@ -1,2 +1,2 @@
-# rsocket-routing
-RSocket Routing Specification
+# rsocket-broker-spec
+RSocket Broker Specification
