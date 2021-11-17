@@ -1,4 +1,4 @@
-# RSocket Routing and Forwarding Specification
+# RSocket Broker Specification
 
 ### Table of Contents
 
@@ -57,12 +57,12 @@ This protocol is currently a draft for the final specifications. Current version
 
 ## Versioning Scheme
 
-RSocket Routing and Forwarding follows a versioning scheme consisting of a numeric major
+RSocket Broker follows a versioning scheme consisting of a numeric major
 version and a numeric minor version.
 
 #### Cross version compatibility
 
-RSocket Routing and Forwarding spec does not assume backward compatibility between major
+RSocket Broker spec does not assume backward compatibility between major
 versions, but it is encouraged. Versions with the same major version are compatible.
 
 ## Introduction
@@ -94,7 +94,7 @@ persistent connections between origin and destination like a message broker.
 
 #### Routing vs Forwarding
 
-_TODO – fill this out more about Routing and Forwarding_
+_TODO – fill this out more about Routing vs Forwarding_
 
 #### Routing using Metadata
 
@@ -126,12 +126,12 @@ specification does not prevent clustering being used to share information.
 
 #### Metadata
 
-RSocket Routing and Forwarding Specification will create a framing envelope that will wrap
+RSocket Broker Specification will create a framing envelope that will wrap
 metadata. The metadata will stay enveloped until it reaches its destination. In a stream with
-multiple frames sent from the producer, i.e. request/channel, the Routing and Forwarding
+multiple frames sent from the producer, i.e. request/channel, the Broker
 envelope metadata only needs to be sent on the first frame.
 
-RSocket Routing and Forwarding protocol will use binary frames. The frames will be used in
+RSocket Broker protocol will use binary frames. The frames will be used in
 with existing RSocket constructs and will not change the RSocket protocol to change at this
 time.
 
@@ -142,7 +142,7 @@ The frames will all share the same mime-type message/x.rsocket.forwarding
 
 #### Framing Header Format
 
-Routing and Forwarding frames will begin with a frame header. This is the general layout:
+Broker frames will begin with a frame header. This is the general layout:
 
 ```
 0 1 2 3
@@ -162,7 +162,7 @@ Routing and Forwarding frames will begin with a frame header. This is the genera
 
 #### Frame Length
 
-Routing and Forwarding frames do not have a length. They defer the frame’s length to the
+Broker frames do not have a length. They defer the frame’s length to the
 encapsulate RSocket Extension frame.
 
 #### Frame Types
